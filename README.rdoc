@@ -1,0 +1,34 @@
+= Description
+
+Ruby interface for the Yahoo PlaceMaker API.
+
+= Installation
+
+Assuming that you've set up your ruby environment to pull gems from GitHub, install placemaker with the following command:
+
+  sudo gem install placemaker
+
+= Usage
+
+The following is an example of using the Placemaker gem to read places in a standard feed.
+
+  require 'placemaker'
+  p = Placemaker.new(:appid => YOUR_APP_ID, :document_url => 'http://feeds.feedburner.com/wooster', :document_type => 'text/xml')
+  results = p.fetch
+  
+"Results" will be a collection of Placemaker::Document objects.  Each of these documents corresponds to a feed entry, and it may
+have one or more "places":
+
+results.first.places
+
+Places are Placemaker::Place objects, and they contain information about the place that is discussed in this particular feed.
+
+= TODO
+
+This library is a rough first pass at using the Yahoo Placemaker API.  It needs refinement in the parsing of the resultset
+returned by Yahoo, as there is plenty of functionality still unexposed in this interface.  It is also still relatively untested
+and surely has bugs.
+
+= Author
+
+Justin S. Leitgeb, mailto:justin@phq.org
