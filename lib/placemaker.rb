@@ -3,6 +3,8 @@ require 'curb'
 require 'nokogiri'
 require 'cgi'
 
+require File.join(File.dirname(__FILE__), %w[placemaker xml_helper])
+
 lib_dirs =  [ 'core_ext', 'placemaker' ].map do |d|
   File.join(File.dirname(__FILE__), d)
 end
