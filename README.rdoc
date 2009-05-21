@@ -4,7 +4,7 @@ Yahoo! Placemaker is a freely available geoparsing Web service. It helps develop
 identifying places in unstructured and atomic content - feeds, web pages, news, status updates - and returning geographic metadata 
 for geographic indexing and markup.
 
-This library is a Ruby interface for accessing the {Yahoo PlaceMaker API}[link:http://developer.yahoo.com/geo/placemaker/].
+This library is a Ruby interface for accessing the {Yahoo PlaceMaker API}[http://developer.yahoo.com/geo/placemaker/].
 
 = Installation
 
@@ -64,4 +64,4 @@ The request to the Yahoo place coding service returns information about the requ
 
 = Author
 
-{Justin S. Leitgeb}[mailto:justin@phq.org]
+Justin S. Leitgeb, justin@phq.org
