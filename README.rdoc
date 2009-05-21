@@ -6,7 +6,7 @@ Ruby interface for the Yahoo PlaceMaker API.
 
 Assuming that you've set up your ruby environment to pull gems from GitHub, install placemaker with the following command:
 
-  sudo gem install placemaker
+  sudo gem install jsl-placemaker
 
 = Usage
 

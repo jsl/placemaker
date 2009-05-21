@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   
   
   s.files = ["lib/core_ext/array.rb", "lib/core_ext/hash.rb", "lib/placemaker/document.rb", "lib/placemaker/place.rb", 
-    "lib/placemaker/reader.rb", "lib/placemaker/xml_parser.rb", "lib/placemaker.rb", "LICENSE", "placemaker-0.0.1.1.gem", 
-    "placemaker-0.0.1.gem", "placemaker.gemspec", "Rakefile", "README.rdoc", "spec/fixtures/xml_rss_feed_result.xml", 
+    "lib/placemaker/reader.rb", "lib/placemaker/xml_parser.rb", "lib/placemaker.rb", "LICENSE",
+    "placemaker.gemspec", "Rakefile", "README.rdoc", "spec/fixtures/xml_rss_feed_result.xml", 
     "spec/placemaker/document_spec.rb", "spec/placemaker/place_spec.rb", "spec/placemaker/reader_spec.rb", 
     "spec/placemaker/xml_parser_spec.rb", "spec/spec_helper.rb"]
   
