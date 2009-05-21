@@ -22,6 +22,7 @@ module Placemaker
       Placemaker::Location.new(gs) unless gs.nil?
     end
     
+    # Returns a Placemaker::Extents object that is a container for the the map extents covering the places mentioned in the document 
     def extents
       extents = @nodeset.search('.//xmlns:extents', 'xmlns' => 'http://wherein.yahooapis.com/v1/schema').first
       Placemaker::Extents.new(extents) unless extents.nil?

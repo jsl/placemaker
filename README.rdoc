@@ -1,33 +1,66 @@
 = Description
 
-Ruby interface for the Yahoo PlaceMaker API.
+Yahoo! Placemaker is a freely available geoparsing Web service. It helps developers make their applications location-aware by 
+identifying places in unstructured and atomic content - feeds, web pages, news, status updates - and returning geographic metadata 
+for geographic indexing and markup.
+
+This library is a Ruby interface for accessing the {Yahoo PlaceMaker API}[http://developer.yahoo.com/geo/placemaker/].
 
 = Installation
 
-Assuming that you've set up your ruby environment to pull gems from GitHub, install placemaker with the following command:
+Assuming that you've set up your ruby environment to pull gems from GitHub 
+(see {the GitHub instructions if you haven't yet done this}[http://gems.github.com]), 
+install placemaker with the following command:
 
   sudo gem install jsl-placemaker
 
 = Usage
 
-The following is an example of using the Placemaker gem to read places in a standard feed.
+The following is an example of using the Placemaker gem to read places in a standard feed.  You'll have to get a Yahoo App ID first if you haven't 
+already done so.
 
   require 'placemaker'
-  p = Placemaker.new(:appid => YOUR_APP_ID, :document_url => 'http://feeds.feedburner.com/wooster', :document_type => 'text/xml')
-  results = p.fetch
+  p = Placemaker::Client.new(:appid => YOUR_APP_ID, :document_url => 'http://feeds.feedburner.com/wooster', :document_type => 'text/xml')
+  p.fetch!
+
+This will make a call to the Placemaker service and populate the Placemaker::Client object with data about the places in the content that you
+sent to Yahoo.  The information that you'll be interested in may be divided into "documents" and "meta-data".
+
+== Documents
+
+Once you've run the +fetch!+ method on the Placemaker::Client, you may invoke the method +documents+ which will return a set of Placemaker::Document
+objects corresponding to each of the entries in the feed given to the placemaker service.  For example, if you gave a +document_url+ pointing
+to a feed containing 15 entries, there will be 15 documents in the resulting client object.
+
+The following are methods that you may invoke on each of the Placemaker::Document objects to find out more about the place information that
+Yahoo was able to glean from the input document:
+
+* place_details - Returns a Placemaker::Location object that is a container for one named place mentioned in the document
+* administrative_scope - Returns a Placemaker::Location object that is a container for the smallest administrative place that best describes the document 
+* geographic_scope - Returns a Placemaker::Location object that is a container for the smallest place that best describes the document 
+* extents - Returns a Placemaker::Extents object that is a container for the the map extents covering the places mentioned in the document
+
+Below is a summary of the methods that these objects respond to.  You may wish to browse the Placemaker rdoc files for these classes to see 
+for more details.
   
-"Results" will be a collection of Placemaker::Document objects.  Each of these documents corresponds to a feed entry, and it may
-have one or more "places":
+=== Placemaker::Location
 
-results.first.places
+Placemaker::Location objects contain a woe_id, name, location_type and centroid.
 
-Places are Placemaker::Place objects, and they contain information about the place that is discussed in this particular feed.
+* woe_id - permanent identifier for the place
+* name - fully qualified name for the place
+* location_type - type name for the place
+* centroid - centroid for the place, responds to +lat+ and +lng+
 
-= TODO
+=== Placemaker::Extents
 
-This library is a rough first pass at using the Yahoo Placemaker API.  It needs refinement in the parsing of the resultset
-returned by Yahoo, as there is plenty of functionality still unexposed in this interface.  It is also still relatively untested
-and surely has bugs.
+Placemaker::Extents are bounding boxes for an area of interest.  They respond to methods for +center+, +south_west+ and +north_east+.  In
+all of these cases, they return a Placemaker::Coordinates object responding to +lat+ and +lng+.
+
+== Meta-data
+
+The request to the Yahoo place coding service returns information about the request.  You may invoke the methods +processing_time+, 
++version+, and +document_length+ to find out more about the request.
 
 = Author
 
