@@ -26,12 +26,14 @@ already done so.
 This will make a call to the Placemaker service and populate the Placemaker::Client object with data about the places in the content that you
 sent to Yahoo.  The information that you'll be interested in may be divided into "documents" and "meta-data."
 
-You can also use placemaker with a document that you upload.  Use +document_content+ in the configuration options instead of :document_url, and 
+You can also use placemaker with a document that you upload.  Use +document_content+ in the configuration options instead of +document_url+, and 
 make sure to set the appropriate value for +document_type+.  Acceptable mime types are text/plain, text/html, text/xml, text/rss, application/xml, 
 and application/rss+xml.  The following is an example of using jsl-placemaker to encode content that you upload:
 
   p = Placemaker::Client.new(:appid => YOUR_APP_ID, :document_content => 'railsconf was in las vegas this year', :document_type => 'text/plain')
   p.fetch!
+
+Afterwards, you have access to the same Placemaker::Client methods as if you had pointed placemaker to a +document_url+.
 
 == Documents
 
