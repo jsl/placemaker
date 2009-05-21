@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{placemaker}
-  s.version = "0.0.1.1"
+  s.version = "0.0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Justin Leitgeb"]
@@ -13,7 +13,12 @@ Gem::Specification.new do |s|
     "README.rdoc"
   ]
   
-  s.files = Dir['lib/**/*.rb'] + Dir['[A-Z]*'] + Dir['spec/**/*']
+  
+  s.files = ["lib/core_ext/array.rb", "lib/core_ext/hash.rb", "lib/placemaker/document.rb", "lib/placemaker/place.rb", 
+    "lib/placemaker/reader.rb", "lib/placemaker/xml_parser.rb", "lib/placemaker.rb", "LICENSE", "placemaker-0.0.1.1.gem", 
+    "placemaker-0.0.1.gem", "placemaker.gemspec", "Rakefile", "README.rdoc", "spec/fixtures/xml_rss_feed_result.xml", 
+    "spec/placemaker/document_spec.rb", "spec/placemaker/place_spec.rb", "spec/placemaker/reader_spec.rb", 
+    "spec/placemaker/xml_parser_spec.rb", "spec/spec_helper.rb"]
   
   s.has_rdoc = true
   s.homepage = %q{http://github.com/jsl/placemaker}
@@ -21,7 +26,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{Ruby interface over the Yahoo Placemaker API}
-  s.test_files = Dir['spec/**/*']
+  s.test_files = ["spec/fixtures/xml_rss_feed_result.xml", "spec/placemaker/document_spec.rb", "spec/placemaker/place_spec.rb", 
+    "spec/placemaker/reader_spec.rb", "spec/placemaker/xml_parser_spec.rb", "spec/spec_helper.rb"]
 
   s.extra_rdoc_files = [ "README.rdoc" ]
   
