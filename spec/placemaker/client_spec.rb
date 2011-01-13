@@ -22,8 +22,9 @@ describe Placemaker::Client do
     end
   
     it "should raise an argument error if the document_type is not correctly set" do
+      @valid_opts.delete(:document_type)
       lambda {
-        Placemaker::Client.new(@valid_opts.except(:document_type))
+        Placemaker::Client.new(@valid_opts)
       }.should raise_error(ArgumentError)
     end
   
