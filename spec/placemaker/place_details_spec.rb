@@ -2,10 +2,9 @@ require 'spec_helper'
 
 describe Placemaker::PlaceDetails do
   before do
-    @xml_str = File.read(File.join(File.dirname(__FILE__), %w[.. fixtures xml_rss_feed_result.xml]))
-    @xmlp = Placemaker::XmlParser.new(@xml_str)
-    @doc = @xmlp.documents[5]
-    @pd = @doc.place_details.first
+    xmlp = Placemaker::XmlParser.new(File.read(File.join(File.dirname(__FILE__), %w[.. fixtures xml_rss_feed_result.xml])))
+    doc = xmlp.documents[5]
+    @pd = doc.place_details.first
   end
     
   describe "#match_type" do

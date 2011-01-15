@@ -23,13 +23,13 @@ module Placemaker
     
     # centroid for the place
     def centroid
-      Placemaker::Coordinates.new(@nodeset.search('.//xmlns:centroid', 'xmlns' => 'http://wherein.yahooapis.com/v1/schema'))
+      Placemaker::Coordinates.new(@nodeset.search('.//xmlns:centroid'))
     end
 
     private    
     
     def nested_node(name)
-      @nodeset.search(".//xmlns:#{name}", 'xmlns' => 'http://wherein.yahooapis.com/v1/schema').inner_text
+      @nodeset.search(".//xmlns:#{name}").inner_text
     end    
   end
 end

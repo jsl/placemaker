@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe Placemaker::XmlParser do
   before do
-    @xml_str = File.read(File.join(File.dirname(__FILE__), %w[.. fixtures xml_rss_feed_result.xml]))
-    @xmlp = Placemaker::XmlParser.new(@xml_str)
+    xml_str = File.read(File.join(File.dirname(__FILE__), %w[.. fixtures xml_rss_feed_result.xml]))
+    @xmlp = Placemaker::XmlParser.new(xml_str)
   end
 
   describe "processing_time" do

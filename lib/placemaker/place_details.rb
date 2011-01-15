@@ -6,7 +6,7 @@ module Placemaker
     
     # Returns a Placemaker::Location object as a container for place information.
     def place
-      Placemaker::Location.new(@nodeset.search('.//xmlns:place', 'xmlns' => 'http://wherein.yahooapis.com/v1/schema'))
+      Placemaker::Location.new(@nodeset.search('.//xmlns:place'))
     end
     
     # type of match (0=text or text and coordinates, 1=coordinates only) 
