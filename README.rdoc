@@ -20,7 +20,7 @@ The following is an example of using the Placemaker gem to read places in a stan
 already done so.
 
   require 'placemaker'
-  p = Placemaker::Client.new(:appid => YOUR_APP_ID, :document_url => 'http://feeds.feedburner.com/wooster', :document_type => 'text/xml')
+  p = Placemaker::Client.new(:appid => YOUR_APP_ID, :document_url => 'http://feeds.nytimes.com/nyt/rss/HomePage', :document_type => 'text/xml')
   p.fetch!
 
 This will make a call to the Placemaker service and populate the Placemaker::Client object with data about the places in the content that you
@@ -73,4 +73,6 @@ The request to the Yahoo place coding service returns information about the requ
 
 = Author
 
-Justin S. Leitgeb, justin@phq.org
+Justin S. Leitgeb, justin@stackbuilders.com
+
+Copyright (c) 2011 {Stack Builders Inc.}[http://stackbuilders.com]
