@@ -4,8 +4,8 @@ module Placemaker
   
   # Main interface to the Placemaker API.
   class Client
-    POST_FIELDS =  %w[ appid document_content document_url document_type document_title 
-      auto_disambiguate focus_woe_id input_language output_type ].map{|f| f.to_sym}
+    POST_FIELDS =  %w[  appid document_content document_url document_type document_title
+                        auto_disambiguate focus_woe_id input_language output_type         ].map(&:to_sym)
 
     def initialize(options = {})
       @options = options
