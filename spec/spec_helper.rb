@@ -1,12 +1,7 @@
 require 'rubygems'
-require 'mocha'
 require 'spec'
 
-require File.join(File.dirname(__FILE__), %w[.. lib placemaker])
-
-Spec::Runner.configure do |config|
-  config.mock_with(:mocha)
-end
+require 'placemaker'
 
 shared_examples_for "all backends" do
   it "should respond to #get" do

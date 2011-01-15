@@ -1,3 +1,9 @@
+require 'placemaker/xml_helper'
+require 'placemaker/place_details'
+require 'placemaker/location'
+require 'placemaker/extents'
+require 'placemaker/reference'
+
 module Placemaker
   
   class Document

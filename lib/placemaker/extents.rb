@@ -1,3 +1,5 @@
+require 'placemaker/coordinates'
+
 module Placemaker
   
   # container for the the map extents covering the places mentioned in the document 

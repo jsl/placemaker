@@ -1,3 +1,5 @@
+require 'placemaker/coordinates'
+
 module Placemaker
 
   # Parses and contains data for +place+, +administrative scope+ and +geographic scope+ elements.

@@ -1,3 +1,5 @@
+require 'placemaker/xml_parser'
+
 module Placemaker
   
   # Main interface to the Placemaker API.

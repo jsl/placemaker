@@ -3,12 +3,7 @@ require 'curb'
 require 'nokogiri'
 require 'cgi'
 
-require File.join(File.dirname(__FILE__), %w[placemaker xml_helper])
+dir = File.dirname(__FILE__)
+$LOAD_PATH.unshift dir unless $LOAD_PATH.include?(dir)
 
-lib_dirs =  [ 'core_ext', 'placemaker' ].map do |d|
-  File.join(File.dirname(__FILE__), d)
-end
-
-lib_dirs.each do |d|
-  Dir[File.join(d, "*.rb")].each {|file| require file }
-end
+require 'placemaker/client'

@@ -1,3 +1,5 @@
+require 'placemaker/document'
+
 module Placemaker
   class XmlParser
     def initialize(xml_body)
