@@ -33,6 +33,12 @@ module Placemaker
       extents = @nodeset.search('.//xmlns:extents', 'xmlns' => 'http://wherein.yahooapis.com/v1/schema').first
       Placemaker::Extents.new(extents) unless extents.nil?
     end
+
+    def reference_list
+      @nodeset.search('.//xmlns:referenceList[1]/xmlns:reference', 'xmlns' => 'http://wherein.yahooapis.com/v1/schema').map do |reference|
+        Placemaker::Reference.new(reference)
+      end
+    end
   end
   
 end

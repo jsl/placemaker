@@ -36,4 +36,16 @@ describe Placemaker::Document do
       @doc.geographic_scope.should be_a(Placemaker::Location)
     end
   end
+
+  describe "#reference_list" do
+    it "should return an array" do
+      @doc.reference_list.size.should == 5
+    end
+    
+    it "should contain Reference objects" do
+      @doc.reference_list.each do |rl|
+        rl.should be_a(Placemaker::Reference)
+      end
+    end
+  end
 end
